@@ -1,0 +1,140 @@
+﻿<!doctype html>
+<title>树洞</title>
+<script language="javascript">  
+function sumbit_sure(){  
+  var gnl=confirm("确定要提交?");  
+  if (gnl==true){  
+  return true;  
+    } else{  
+  return false;  
+    }  
+  }  
+
+function slct(){
+    document.getElementById('snew').value=document.getElementById('sold').value;
+    }
+
+</script> 
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<body style="background-image: url('{{ url_for("static", filename="bg2.jpg") }}');"></body>
+  <style type="text/css">
+    .black_overlay{    
+     display: none;    
+     position: absolute;top: 0%;    
+     left: 0%;
+     width: 100%;
+     height: 100%;    
+     background-color: black;    
+     z-index:1001;    
+     -moz-opacity: 0.8;    
+     opacity:.80;    
+     filter: alpha(opacity=80);      
+    }   
+    .white_content{    
+     display: none;    
+     position: absolute;    
+     top: 25%;  left: 25%;    
+     width: 50%;    
+     height: 100%;    
+     padding: 16px;    
+     border: 1px solid blueviolet;    
+     background-color: white;    
+     z-index:1002;    
+    overflow:auto    
+    }    
+   .black_content{    
+     display: none;    
+     position: absolute;    
+     top: 5%;  left: 25%;    
+     width: 50%;    
+     height: 100%;    
+     padding: 16px;    
+     border: 1px solid blueviolet;    
+     background-color: white;    
+     z-index:1002;    
+    overflow:auto    
+    }    
+    </style>
+<div>
+    <input  style="position:absolute;left: 100px;background:none;font-size:0.5cm;color:blueviolet;float:top"type="button" value="随便看看" text="弹出层" onClick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+<div style="float:right">   
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86  src="//music.163.com/outchain/player?type=2&id=461080452&auto=0&height=66" ></iframe>
+
+</div>
+<div id="light" class="white_content">    
+         <a href="#" onClick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="color:blueviolet;z-index:9999">Close</a>    
+      	<div style="color:#377BA8;font-family:YouYuan;font-size:0.6cm;font-weight:900;" id="dituContent">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;今天白天加了一个音乐播放器，我会不定期更换歌曲，希望无论你是谁，看到会喜欢就好</p>
+<p align="right">2.14</p>
+<p>——————————————————————————————————</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;这个时代缺的不是完美的人 缺的是从自己心底里给出的真心、正义、无畏和同情
+在被打击时 记起你的珍贵 抵抗恶意 在迷茫时坚信你的珍贵 爱你所爱 行你所行 听从你心 无问西东
+</p>
+<p align="right">————《无问西东》 1.17</p>
+<p>——————————————————————————————————</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;地图是一张白纸，这当然很伤脑筋。任何人都会不知所措。 
+可是换个角度来看，正因为是一张白纸，才可以随心所欲地描绘地图。一切全在你自己。对你来说，一切都是自由的，在你面前是无限的可能。这可是很棒的事啊。我衷心祈祷你可以相信自己，无悔地燃烧自己的人生。
+</p>
+<p align="right">————东野圭吾《解忧杂货店》 1.5</p>
+<p>——————————————————————————————————</p>
+<p>
+<div>
+    <input style="position:absolute;left: 100px;background:none;font-size:0.5cm;color:blueviolet"type="button" value="小视频" text="弹出层" onClick="document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'">
+    <div id="light2" class="black_content">    
+         <a href="#1" onClick="document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'" style="color:blueviolet;z-index:9999">Close</a>    
+      	<div style="color:#377BA8;font-family:YouYuan;font-size:0.6cm;font-weight:900;" id="dituContent2">
+		<video type="video/mp4" src="D:/yjxyhy/Documents/vscode/demoapp/static/dy.mp4" controls>你的浏览器不支持该视频播放</video>
+      	</div>    
+    </div>    
+</div>
+<p>&nbsp;</p>
+</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;天下只有两种人，比如一串葡萄到手，一种人挑最好的先吃，另一种人把最好的留到最后吃。照例第一种人应该乐观，因为他每吃一颗都是吃剩的葡萄里最好的，第二种人应该悲观，因为他每吃一颗都是吃剩的葡萄里最坏的。不过事实却适得其反，缘故是第二种人还有希望，第一种人只有回忆。</p>
+<p align="right">————钱钟书《围城》 12.18</p>
+<p>——————————————————————————————————</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;人生是一场旅程，我们经历了几次轮回，才换来这个旅程；而这个旅程很短，因此不妨大胆一些，不妨大胆一些去爱一个人，去攀一座山，去追一个梦……
+有很多事我都不明白，但我相信一件事，上天让我们来到这个世上，就是为了让我们创造奇迹。</p>          
+<p align="right">————《大鱼海棠》 12.15</p>
+<p>——————————————————————————————————</p>
+<p align="center">No good thing ever dies.</p> 
+<p align="right">————《肖申克的救赎》 12.11</p>
+      	</div>    
+    </div>    
+</div>             
+<div class=page >
+  <h1>树洞 （一个寄存秘密的地方）</h1>
+  <img src='/static/hello.png' alt='this is not me'>
+<!--<iframe height=360 width=640 src="http://staticlive.douyutv.com/common/share/play.html?room_id=156277" frameborder=0 allowfullscreen></iframe>-->
+<div class=metanav>
+
+  {% if not session.logged_in %}
+    <a style="text-align: right;font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" href="{{ url_for('regist') }}">注册</a>
+    <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+    <a style="text-align: right;font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" href="{{ url_for('login') }}">登陆</a>
+  {% else %}
+    <a style="text-align: right;font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" href="{{ url_for('logout') }}">注销</a>
+  {% endif %}
+  <p style="text-align: left">
+    <a style="font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" href="../index" >主页</a>  
+        <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+    <a href='../hot' style="font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" >热门</a>
+        <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+    <a href='../pictures' style="font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" >图库</a>
+        <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+        <a href='../flag' style="font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" >标签</a>
+        <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+        <a href='../help' style="font-weight:bold;font-size:0.7cm;color:#1822b4;font-family:YouYuan;text-decoration:none" >帮助中心</a>
+        <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+      <form action="{{ url_for('show_entries') }}" method=post >
+        <input type=text size=15 name=query>
+        <input type=submit value=站内查询>
+      </form>
+  </p>
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>
+</body>

@@ -1,0 +1,111 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<h1 style="font-weight: bold;font-size:1cm;font-family:YouYuan;">主页</h1>
+
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry onsubmit="return sumbit_sure()">
+      <dl>
+        <dt>标题:
+        <dd><input type=text size=30 name=title>
+        <dt>内容:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+          <dl></dl> 
+        <dt>地区：<select style="width: 75px" id=sold onchange=slct() value="">
+              <option value="">请选择</option>
+            <option value="北京市">北京市</option>
+            <option value="天津市">天津市</option>
+            <option value="河北省">河北省</option>
+            <option value="山西省">山西省</option>
+            <option value="内蒙古">内蒙古</option>
+            <option value="辽宁省">辽宁省</option>
+            <option value="吉林省">吉林省</option>
+            <option value="黑龙江省">黑龙江省</option>
+            <option value="上海市">上海市</option>
+            <option value="江苏省">江苏省</option>
+            <option value="浙江省">浙江省</option>
+            <option value="安徽省">安徽省</option>
+            <option value="福建省">福建省</option>
+            <option value="江西省">江西省</option>
+            <option value="山东省">山东省</option>
+            <option value="河南省">河南省</option>
+            <option value="湖北省">湖北省</option>
+            <option value="湖南省">湖南省</option>
+            <option value="广东省">广东省</option>
+            <option value="广西自治区">广西自治区</option>
+            <option value="海南省">海南省</option>
+            <option value="重庆市">重庆市</option>
+            <option value="四川省">四川省</option>
+            <option value="贵州省">贵州省</option>
+            <option value="云南省">云南省</option>
+            <option value="西藏自治区">西藏自治区</option>
+            <option value="陕西省">陕西省</option>
+            <option value="甘肃省">甘肃省</option>
+            <option value="青海省">青海省</option>
+            <option value="宁夏回族自治区">宁夏回族自治区</option>
+            <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+            <option value="香港特别行政区">香港特别行政区</option>
+            <option value="澳门特别行政区">澳门特别行政区</option>
+            <option value="台湾省">台湾省</option>
+          </select>
+          <dd><p><input type=text size=10 name=area id=snew >（其他地区请自己填写）</p>
+        <dt>标签：<select style="width: 75px" value="" name=flag>
+              <option value="">请选择</option>
+              <option value="电影">电影</option>
+              <option value="体育">体育</option>
+              <option value="美食">美食</option>
+              <option value="情感">情感</option>
+              <option value="学习">学习</option>
+              <option value="吐槽">吐槽</option>
+              <option value="其他">其他</option>
+          </select>
+        <dl></dl>
+        <dd><input type=submit value=分享>(标题、内容至少填一项，其他可不填)
+      </dl>
+    </form>
+  {% endif %}
+
+  
+  <ul class=entries>
+  {% for entry in entries %}
+ <li style='border-top:0.1px solid #96c2f1;background:#eff7ff'><h2>{{ entry.title }}
+
+    {% if entry.time %}
+      <p style='font-size:0.8em;text-align: right ;'>{{ entry.time }}</p></h2>
+    {% endif %}</h2>
+
+    {{ entry.text|safe }}
+      
+    {% if entry.area %}
+      <p style='font-size:0.8em;text-align:right'>来自{{ entry.area }}的热心网友</h2>
+    {% endif %}
+
+    {% if entry.up %}
+      <p style='font-size:0.8em;text-align:right'>{{ entry.up }}</h2>
+    {% endif %}</h2>
+
+    <a style="float: right;" href='./up/{{entry.id}}'><img src='./static/up.jpg' style='width:20px;height:20px;'></img></a>
+  {% else %}
+    <li><em>查询不到相关内容</em>
+  {% endfor %}
+</ul>
+  
+{% if next %}
+<ul class="pagination pagination-lg">
+    <a style="font-weight:bold;font-family:YouYuan;text-decoration:none;font-size: 0.5cm;" href="/index">首页</a>
+    <a class="active" style="font-weight:bold;font-family:YouYuan;text-decoration:none;font-size: 0.5cm;" href="./{{previous}}">上一页</a>
+    <a class="active" style="font-weight:bold;font-family:YouYuan;text-decoration:none;font-size: 0.5cm;" href="./{{next}}">下一页</a>
+    <a class="active" style="font-weight:bold;font-family:YouYuan;text-decoration:none;font-size: 0.5cm;" href="./{{data}}0">末页</a>
+    &nbsp&nbsp&nbsp&nbsp
+    当前页:<a class="active" style="font-weight:bold;font-family:YouYuan;text-decoration:none;font-size: 0.5cm;" >&nbsp&nbsp{{next//10}}</a>    
+    <p>
+      {% for index in range(0,data+1) %}
+         <a>&nbsp</a>
+      <a style="text-align: left;font-weight:bold;font-family:YouYuan;text-decoration:none;font-size: 0.5cm;" href="{{index}}0">{{index+1}}</a>
+         <a>&nbsp</a>
+    {% endfor %}
+  </p>
+</ul>
+{% endif %}
+    <br>
+    <p style='font-size:0.8em;text-align:right'> 访问量 : {{num}} 
+{% endblock %}

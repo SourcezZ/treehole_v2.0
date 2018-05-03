@@ -1,0 +1,25 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<title>Upload File</title>
+<h1 style="font-weight: bold;font-size:1cm;font-family:YouYuan;">图库
+<a style="font-size:0.5cm;text-align:right">（点击对应图片查看原图，上传后刷新页面即可查看）</a>
+</h1>
+<h2 style="text-align:right">
+<a href='/pictures' style="color:#1822b4;font-family:YouYuan;text-decoration:none;font-size:0.7cm;font-weight:bold">刷新</a>
+<a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+</h2>
+{% if session.logged_in %}
+    <form method="POST" enctype="multipart/form-data" onsubmit="return sumbit_sure()">
+     {{ form.hidden_tag() }}
+     {{ form.photo }}
+     {% for error in form.photo.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+     {{ form.submit }}
+</form>
+  {% endif %}
+
+{% for pic in photo %}
+<a href="static/photo/{{pic.or_pic}}" title="{{pic.sl_time}}"><img src="static/slphoto/{{pic.sl_pic}}" style="height:7cm;width:7cm"></a>
+{% endfor %}
+{% endblock %}

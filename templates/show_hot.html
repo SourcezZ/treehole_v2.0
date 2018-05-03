@@ -1,0 +1,36 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<h1 style="font-weight: bold;font-size:1cm;font-family:YouYuan;">热门</h1>
+  <ul class=entries>
+  {% for entry in entries %}
+    <li style='border-top:0.1px solid #96c2f1;background:#eff7ff'><h2>{{ entry.title }}
+    
+    {% if entry.time %}
+      <p style='font-size:0.8em;text-align:right'>{{ entry.time }}</h2>
+    {% endif %}</h2>
+
+    {{ entry.text|safe }}
+      
+    {% if entry.area %}
+      <p style='font-size:0.8em;text-align:right'>来自{{ entry.area }}的热心网友</h2>
+    {% endif %}
+
+    {% if entry.up %}
+      <p style='font-size:0.8em;text-align:right'>{{ entry.up }}</h2>
+    {% endif %}</h2>
+
+    <a style="float: right;" href='./up/{{entry.id}}'><img src='./static/up.jpg' style='width:20px;height:20px;'></img></a>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+
+  {% for pic in show_pic %}
+  <br><img src="{{ pic.pic }}"> 
+  {% endfor %}
+
+  {% for num in show_num %}
+  <p style='font-size:0.8em;text-align:right'> total : {{num.num}} 
+  {% endfor %}
+
+  </ul>
+{% endblock %}

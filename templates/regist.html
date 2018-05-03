@@ -1,0 +1,14 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+  <h1 style="font-weight: bold;font-size:1cm;font-family:YouYuan;">注册</h1>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('regist') }}" method=post>
+    <dl>
+      <dt>Username:
+      <dd><input type=text name=username>
+      <dt>Password:
+      <dd><input type=password name=password>
+      <dd><input type=submit value=注册>
+    </dl>
+  </form>
+{% endblock %}
